@@ -1,0 +1,82 @@
+types
+	id, name, description
+positions
+	id, name, description
+sensors
+	id, ip, mac, name, description, type_id, position_id, last_update
+
+temperature_readings
+	id, sensor_id, temperature, humidity, measurement_datetime
+
+SELECT
+                s.id, s.ip, s.mac, s.name, s.description, s.type_id, s.position_id, t.name as type_name, p.name as position_name
+            FROM
+                smarthome_sensors s
+                LEFT JOIN
+                    smarthome_types t
+                        ON t.type_id = s.type_id
+                LEFT JOIN
+                    smarthome_positions p
+                        ON p.position_id = s.position_id
+            ORDER BY
+                s.id DESC
+
+CREATE TABLE rooms (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE types(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  is_input BIT NOT NULL
+)
+
+CREATE TABLE components (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  pin INT NOT NULL,
+  last_update DATETIME,
+  board_id INT NOT NULL,
+  room_id INT NOT NULL,
+  type_id INT NOT NULL,
+  FOREIGN KEY (board_id) REFERENCES rooms(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+  FOREIGN KEY (type_id) REFERENCES types(id) ON DELETE RESTRICT ON UPDATE CASCADE
+)
+
+CREATE TABLE boards (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ip INT UNSIGNED NOT NULL,
+  mac BIGINT UNSIGNED NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  room_id INT NOT NULL,
+  last_update DATETIME,
+  FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE RESTRICT ON UPDATE CASCADE
+)
+
+CREATE TABLE readings (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	component_id INT NOT NULL,
+	reading VARCHAR(255) NOT NULL,
+	read_time DATETIME NOT NULL,
+	FOREIGN KEY (component_id) REFERENCES components(id) ON DELETE RESTRICT ON UPDATE CASCADE
+)
+
+PI IP: 192.168.178.65
+User: pi
+Passwd: merle konws it
+
+FTP User: apache
+same ass passwd
+
+MYSQL User: apache
+Same
+
+Regex to replace seocond 
+^(.*?)\(.*?)\
+$1$2

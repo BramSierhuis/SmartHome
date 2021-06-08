@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <meta charset="UTF-8">
+        <title>Setup board</title>
+    </head>
+    <body>
+        <header id="pageheader">
+            <h1>NodeMCU Setup</h1>
+            <h2>-Homemade Smarthome-</h2>
+        </header>
+
+        <section id="maincontent">
+            <article class="article article-left">
+                <header>
+                    <h3>Component list</h3>
+                </header>
+                <table class="styled-table">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Pin</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td>DHT11</td>
+                            <td>Bedroom Temperature Sensor</td>
+                            <td>So I dont get cold during the night</td>
+                            <td>12</td>
+                            <td><button id=""</td>
+                            <td><form action="/api/type/delete.php" method="POST"
+                                      target="noRedirectHandler" onsubmit="setTimeout(function(){window.location.reload();},10);">
+                                <input type="hidden" name="id" value="1"/>
+                                <input class="editButton" type="submit" name="deleteBtn" value="Remove"/><br>
+                            </form></td>
+                        </tr>
+                        <tr class="">
+                            <td>DHT11</td>
+                            <td>Bedroom Temperature Sensor</td>
+                            <td>So I dont get cold during the night</td>
+                            <td>12</td>
+                            <td><form action="/api/type/delete.php" method="POST"
+                                      target="noRedirectHandler" onsubmit="setTimeout(function(){window.location.reload();},10);">
+                                <input type="hidden" name="id" value="1"/>
+                                <input class="editButton" type="submit" name="deleteBtn" value="X"/><br>
+                            </form></td>
+                            <td><form action="/api/type/delete.php" method="POST"
+                                      target="noRedirectHandler" onsubmit="setTimeout(function(){window.location.reload();},10);">
+                                <input type="hidden" name="id" value="1"/>
+                                <input class="editButton" type="submit" name="deleteBtn" value="E"/><br>
+                            </form></td>
+                        </tr>
+                        <tr class="">
+                            <td>DHT11</td>
+                            <td>Bedroom Temperature Sensor</td>
+                            <td>So I dont get cold during the night</td>
+                            <td>12</td>
+                            <td><form action="/api/type/delete.php" method="POST"
+                                      target="noRedirectHandler" onsubmit="setTimeout(function(){window.location.reload();},10);">
+                                <input type="hidden" name="id" value="1"/>
+                                <input class="editButton" type="submit" name="deleteBtn" value="X"/><br>
+                            </form></td>
+                            <td><form action="/api/type/delete.php" method="POST"
+                                      target="noRedirectHandler" onsubmit="setTimeout(function(){window.location.reload();},10);">
+                                <input type="hidden" name="id" value="1"/>
+                                <input class="editButton" type="submit" name="deleteBtn" value="E"/><br>
+                            </form></td>
+                        <tr class="">
+                            <td>DHT11</td>
+                            <td>Bedroom Temperature Sensor</td>
+                            <td>So I dont get cold during the night</td>
+                            <td>12</td>
+                            <td><form action="/api/type/delete.php" method="POST"
+                                      target="noRedirectHandler" onsubmit="setTimeout(function(){window.location.reload();},10);">
+                                <input type="hidden" name="id" value="1"/>
+                                <input class="editButton" type="submit" name="deleteBtn" value="X"/><br>
+                            </form></td>
+                            <td><form action="/api/type/delete.php" method="POST"
+                                      target="noRedirectHandler" onsubmit="setTimeout(function(){window.location.reload();},10);">
+                                <input type="hidden" name="id" value="1"/>
+                                <input class="editButton" type="submit" name="deleteBtn" value="E"/><br>
+                            </form></td>
+                    </tbody>
+                </table>
+            </article>
+
+            <article class="article">
+                <header>
+                    <h3>Add new component</h3>
+                </header>
+                <form class="form-card" method="post" action="/api/room/create.php" target="noRedirectHandler"
+                      onsubmit="setTimeout(function(){window.location.reload();},10);">
+                    <div class="text">
+                        <label for="types">Type of component:</label><br>
+                        <label for="name">Name of component:</label><br>
+                        <label for="description">Description:</label><br>
+                        <label for="pin">Connected to pin:</label><br>
+                    </div>
+                    <div>
+                        <select id="types" name="types">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <br>
+                        <input id="name" type="text" name="name">
+                        <br>
+                        <input id="description" type="text" name="description">
+                        <br>
+                        <select id="pin" name="pin">
+                            <option value="16">0</option>
+                            <option value="5">1</option>
+                            <option value="4">2</option>
+                            <option value="0">3</option>
+                            <option value="2">4</option>
+                            <option value="14">5</option>
+                            <option value="12">6</option>
+                            <option value="13">7</option>
+                            <option value="15">8</option>
+                        </select>
+                        <br>
+                        <input type="submit" name="submit" value="Create" class="bigSubmit">
+                    </div>
+                </form>
+            </article>
+        </section>
+
+        <iframe name="noRedirectHandler" width="0" height="0" border="0" style="display: none;"></iframe>
+    </body>
+</html>
